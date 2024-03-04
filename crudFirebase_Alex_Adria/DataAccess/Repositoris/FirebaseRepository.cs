@@ -18,52 +18,52 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             if (Firebase != null ) Console.WriteLine("Connected");
         }
 
-        public Task<bool> AddMusic(Musica musica)
+        public async Task<bool> AddMusic(Musica musica)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> ExistsDisc(string id)
+        public async Task<bool> ExistsDisc(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> ExistsMusica(string name)
+        public async Task<bool> ExistsMusica(string name)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> ExistsSong(string id)
+        public async Task<bool> ExistsSong(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Musica> GetMusica(string name)
+        public async Task<Musica> GetMusica(string name)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IReadOnlyCollection<FirebaseObject<Musica>>> GetMusiques()
+        public async Task<IReadOnlyCollection<FirebaseObject<Musica>>> GetMusiques()
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> RemoveDisc(string id)
+        public async Task<bool> RemoveDisc(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> RemoveMusic(string name)
+        public async Task<bool> RemoveMusic(string name)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> RemoveSong(string id)
+        public async Task<bool> RemoveSong(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateMusica(Musica musica)
+        public async Task<bool> UpdateMusica(Musica musica)
         {
             throw new NotImplementedException();
         }
