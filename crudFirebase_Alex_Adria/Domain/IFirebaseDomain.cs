@@ -1,9 +1,8 @@
 ﻿using crudFirebase_Alex_Adria.Models;
-using Firebase.Database;
 
-namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
+namespace crudFirebase_Alex_Adria.Domain
 {
-    public interface IFirebaseRepository
+    public interface IFirebaseDomain
     {
         public Task<bool> ExistsMusica(String name);
         public Task<bool> ExistsDisc(String id);
@@ -22,6 +21,6 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
         public Task<bool> UpdateSong(Disc disc, Song song);
 
         public Task<Musica> GetMusica(String name);
-        public Task<IReadOnlyCollection<FirebaseObject<Musica>>> GetMusiques();
+        public Task<List<Musica>> GetListMusiques();
     }
 }

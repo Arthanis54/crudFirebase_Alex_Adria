@@ -18,7 +18,17 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             if (Firebase != null ) Console.WriteLine("Connected");
         }
 
+        public Task<bool> AddDisc(Musica musica, Disc disc)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<bool> AddMusic(Musica musica)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AddSong(Disc disc, Song song)
         {
             throw new NotImplementedException();
         }
@@ -43,6 +53,16 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             throw new NotImplementedException();
         }
 
+        private async Task<Disc> GetDisc(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task<Song> GetSong(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IReadOnlyCollection<FirebaseObject<Musica>>> GetMusiques()
         {
             throw new NotImplementedException();
@@ -63,7 +83,17 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             throw new NotImplementedException();
         }
 
+        public Task<bool> UpdateDisc(Musica musica, Disc disc)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<bool> UpdateMusica(Musica musica)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateSong(Disc disc, Song song)
         {
             throw new NotImplementedException();
         }
