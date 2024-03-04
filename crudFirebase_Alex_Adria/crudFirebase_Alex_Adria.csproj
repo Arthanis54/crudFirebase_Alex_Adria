@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataAccess\Repositoris\" />
     <Folder Include="Domain\" />
   </ItemGroup>
 
