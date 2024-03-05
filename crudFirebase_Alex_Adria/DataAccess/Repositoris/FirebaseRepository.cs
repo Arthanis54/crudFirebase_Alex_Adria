@@ -1,6 +1,7 @@
 ﻿using crudFirebase_Alex_Adria.Models;
 using Firebase.Database;
 using Firebase.Database.Query;
+using System.Xml.Linq;
 
 namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
 {
@@ -18,7 +19,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             if (Firebase != null ) Console.WriteLine("Connected");
         }
 
-        public Task<bool> AddDisc(Musica musica, Disc disc)
+        public async Task<bool> AddDisc(string musicaName, Disc disc)
         {
             throw new NotImplementedException();
         }
@@ -28,12 +29,12 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             throw new NotImplementedException();
         }
 
-        public Task<bool> AddSong(Disc disc, Song song)
+        public async Task<bool> AddSong(string musicaName, string discName, string songName)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> ExistsDisc(string id)
+        public async Task<bool> ExistsDisc(string musicaName, string discName)
         {
             throw new NotImplementedException();
         }
@@ -43,7 +44,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             throw new NotImplementedException();
         }
 
-        public async Task<bool> ExistsSong(string id)
+        public async Task<bool> ExistsSong(string musicaName, string discName, string songName)
         {
             throw new NotImplementedException();
         }
@@ -53,22 +54,12 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             throw new NotImplementedException();
         }
 
-        private async Task<Disc> GetDisc(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        private async Task<Song> GetSong(string id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IReadOnlyCollection<FirebaseObject<Musica>>> GetMusiques()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> RemoveDisc(string id)
+        public async Task<bool> RemoveDisc(string musicaName, string discName)
         {
             throw new NotImplementedException();
         }
@@ -78,12 +69,12 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             throw new NotImplementedException();
         }
 
-        public async Task<bool> RemoveSong(string id)
+        public async Task<bool> RemoveSong(string musicaName, string discName, string songName)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateDisc(Musica musica, Disc disc)
+        public async Task<bool> UpdateDisc(string musicaName, Disc disc)
         {
             throw new NotImplementedException();
         }
@@ -93,7 +84,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateSong(Disc disc, Song song)
+        public async Task<bool> UpdateSong(string musicaName, string discName, string songName)
         {
             throw new NotImplementedException();
         }

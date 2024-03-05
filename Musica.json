@@ -1,0 +1,58 @@
+{
+  "Musica": {
+    "Musica 1": {
+      "Id": "1",
+      "DataCreacio": "2022-03-05",
+      "Info": "Some information about Musica Example 1",
+      "Discografia": {
+        "Disc 1": {
+          "Id": "3001",
+          "DataAparicio": "2022-03-05",
+          "LlistaSongs": {
+            "Song 1": {
+              "Id": "1001",
+              "Durada": 3.5
+            },
+            "Song 2": {
+              "Id": "1002",
+              "Durada": 4.2
+            }
+          }
+        }
+      }
+    },
+    "Musica 2": {
+      "Id": "2",
+      "DataCreacio": "2022-03-06",
+      "Info": "Some information about Musica Example 2",
+      "Discografia": {
+        "Disc 3": {
+          "DataAparicio": "2022-03-06",
+          "LlistaSongs": {
+            "Song 5": {
+              "Id": "2001",
+              "Durada": 3.9
+            },
+            "Song 6": {
+              "Id": "2002",
+              "Durada": 2.5
+            }
+          }
+        },
+        "Disc 4": {
+          "DataAparicio": "2022-03-06",
+          "LlistaSongs": {
+            "Song 7": {
+              "Id": "2003",
+              "Durada": 4.8
+            },
+            "Song 8": {
+              "Id": "2004",
+              "Durada": 3.2
+            }
+          }
+        }
+      }
+    }
+  }
+}

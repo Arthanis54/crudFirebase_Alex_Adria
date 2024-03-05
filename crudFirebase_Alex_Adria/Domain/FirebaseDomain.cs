@@ -17,12 +17,12 @@ namespace crudFirebase_Alex_Adria.Domain
             throw new NotImplementedException();
         }
 
-        public async Task<bool> ExistsDisc(string id)
+        public async Task<bool> ExistsDisc(string musicaName, string discName)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> ExistsSong(string id)
+        public async Task<bool> ExistsSong(string musicaName, string discName, string songName)
         {
             throw new NotImplementedException();
         }
@@ -32,12 +32,12 @@ namespace crudFirebase_Alex_Adria.Domain
             throw new NotImplementedException();
         }
 
-        public async Task<bool> RemoveDisc(string id)
+        public async Task<bool> RemoveDisc(string musicaName, string discName)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> RemoveSong(string id)
+        public async Task<bool> RemoveSong(string musicaName, string discName, string songName)
         {
             throw new NotImplementedException();
         }
@@ -47,12 +47,12 @@ namespace crudFirebase_Alex_Adria.Domain
             throw new NotImplementedException();
         }
 
-        public async Task<bool> AddDisc(Musica musica, Disc disc)
+        public async Task<bool> AddDisc(string musicaName, Disc disc)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> AddSong(Disc disc, Song song)
+        public async Task<bool> AddSong(string musicaName, string discName, string songName)
         {
             throw new NotImplementedException();
         }
@@ -62,12 +62,12 @@ namespace crudFirebase_Alex_Adria.Domain
             throw new NotImplementedException();
         }
 
-        public async Task<bool> UpdateDisc(Musica musica, Disc disc)
+        public async Task<bool> UpdateDisc(string musicaName, Disc disc)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> UpdateSong(Disc disc, Song song)
+        public async Task<bool> UpdateSong(string musicaName, string discName, string songName)
         {
             throw new NotImplementedException();
         }
@@ -77,7 +77,7 @@ namespace crudFirebase_Alex_Adria.Domain
             throw new NotImplementedException();
         }
 
-        public async Task<List<Musica>> GetListMusiques()
+        public async Task<List<Musica>> GetMusiques()
         {
             throw new NotImplementedException();
         }
