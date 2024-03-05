@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:crudFirebase_Alex_Adria.Views"
         mc:Ignorable="d"
         Title="CRUD" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <DockPanel>
+        <TextBlock x:Name="tbTest" Background="AliceBlue" DockPanel.Dock="Top" Margin="100" Padding="20"/>
+        <Button x:Name="btnTest" Click="btnTest_Click" Content="Test"/>
+    </DockPanel>
 </Window>

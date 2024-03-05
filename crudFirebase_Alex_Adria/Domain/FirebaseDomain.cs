@@ -12,21 +12,6 @@ namespace crudFirebase_Alex_Adria.Domain
             FirebaseRepository = FirebaseFactory.GetFirebaseRepository();
         }
 
-        public async Task<bool> ExistsMusica(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<bool> ExistsDisc(string musicaName, string discName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<bool> ExistsSong(string musicaName, string discName, string songName)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<bool> RemoveMusic(string name)
         {
             throw new NotImplementedException();
@@ -52,7 +37,7 @@ namespace crudFirebase_Alex_Adria.Domain
             throw new NotImplementedException();
         }
 
-        public async Task<bool> AddSong(string musicaName, string discName, string songName)
+        public async Task<bool> AddSong(string musicaName, string discName, Song song)
         {
             throw new NotImplementedException();
         }
@@ -67,7 +52,7 @@ namespace crudFirebase_Alex_Adria.Domain
             throw new NotImplementedException();
         }
 
-        public async Task<bool> UpdateSong(string musicaName, string discName, string songName)
+        public async Task<bool> UpdateSong(string musicaName, string discName, Song song)
         {
             throw new NotImplementedException();
         }

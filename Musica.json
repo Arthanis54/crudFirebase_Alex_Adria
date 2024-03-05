@@ -8,7 +8,7 @@
         "Disc 1": {
           "Id": "3001",
           "DataAparicio": "2022-03-05",
-          "LlistaSongs": {
+          "Cançons": {
             "Song 1": {
               "Id": "1001",
               "Durada": 3.5
@@ -28,7 +28,7 @@
       "Discografia": {
         "Disc 3": {
           "DataAparicio": "2022-03-06",
-          "LlistaSongs": {
+          "Cançons": {
             "Song 5": {
               "Id": "2001",
               "Durada": 3.9
@@ -41,7 +41,7 @@
         },
         "Disc 4": {
           "DataAparicio": "2022-03-06",
-          "LlistaSongs": {
+          "Cançons": {
             "Song 7": {
               "Id": "2003",
               "Durada": 4.8

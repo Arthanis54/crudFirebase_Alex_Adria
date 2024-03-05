@@ -21,32 +21,101 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
 
         public async Task<bool> AddDisc(string musicaName, Disc disc)
         {
-            throw new NotImplementedException();
+            bool done = false;
+
+            if (!await ExistsDisc(musicaName, disc.Nom))
+            {
+                Disc unDisc = new Disc(
+                    disc.Id,
+                    disc.DataAparicio,
+                    disc.LlistaSongs
+                    );
+                await Firebase
+                    .Child("Musica")
+                    .Child(musicaName)
+                    .Child("Discografia")
+                    .Child(disc.Nom)
+                    .PutAsync(unDisc);
+
+                done = true;
+            }
+            return done;
         }
 
         public async Task<bool> AddMusic(Musica musica)
         {
-            throw new NotImplementedException();
+            bool done = false;
+
+            if (!await ExistsMusica(musica.Nom))
+            {
+                Musica unaMusica = new Musica(
+                    musica.Id,
+                    musica.DataCreacio,
+                    musica.Info,
+                    musica.Discografia
+                    );
+                await Firebase
+                    .Child("Musica")
+                    .Child(musica.Nom)
+                    .PutAsync(unaMusica);
+
+                done = true;
+            }
+            return done;
         }
 
-        public async Task<bool> AddSong(string musicaName, string discName, string songName)
+        public async Task<bool> AddSong(string musicaName, string discName, Song song)
         {
-            throw new NotImplementedException();
+            bool done = false;
+
+            if (!await ExistsSong(musicaName, discName, song.Nom))
+            {
+                Song oneSong = new Song(
+                    song.Id,
+                    song.Durada
+                    );
+                await Firebase
+                    .Child("Musica")
+                    .Child(musicaName)
+                    .Child("Discografia")
+                    .Child(discName)
+                    .Child("Cançons")
+                    .Child(song.Nom)
+                    .PutAsync(oneSong);
+
+                done = true;
+            }
+            return done;
         }
 
-        public async Task<bool> ExistsDisc(string musicaName, string discName)
+        private async Task<bool> ExistsDisc(string musicaName, string discName)
         {
-            throw new NotImplementedException();
+            return await Firebase
+                .Child("Musica")
+                .Child($"{musicaName}")
+                .Child("Discografia")
+                .Child($"{discName}")
+                .OnceSingleAsync<Disc>() != null;
         }
 
-        public async Task<bool> ExistsMusica(string name)
+        private async Task<bool> ExistsMusica(string name)
         {
-            throw new NotImplementedException();
+            return await Firebase
+                .Child("Musica")
+                .Child($"{name}")
+                .OnceSingleAsync<Musica>() != null;
         }
 
-        public async Task<bool> ExistsSong(string musicaName, string discName, string songName)
+        private async Task<bool> ExistsSong(string musicaName, string discName, string songName)
         {
-            throw new NotImplementedException();
+            return await Firebase
+                .Child("Musica")
+                .Child($"{musicaName}")
+                .Child("Discografia")
+                .Child($"{discName}")
+                .Child("Cançons")
+                .Child($"{songName}")
+                .OnceSingleAsync<Song>() != null;
         }
 
         public async Task<Musica> GetMusica(string name)
@@ -84,7 +153,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             throw new NotImplementedException();
         }
 
-        public async Task<bool> UpdateSong(string musicaName, string discName, string songName)
+        public async Task<bool> UpdateSong(string musicaName, string discName, Song song)
         {
             throw new NotImplementedException();
         }
