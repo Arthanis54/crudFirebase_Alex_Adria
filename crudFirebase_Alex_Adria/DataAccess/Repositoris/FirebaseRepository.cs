@@ -120,12 +120,40 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
 
         public async Task<Musica> GetMusica(string name)
         {
-            throw new NotImplementedException();
+            Musica musicaGet = null;
+
+            if(await ExistsMusica(name))
+            {
+                musicaGet = await Firebase
+                    .Child("Musica")
+                    .Child(name)
+                    .OnceSingleAsync<Musica>();
+
+                musicaGet.Nom = name;
+
+            }
+
+
+            return musicaGet;
+
         }
 
         public async Task<IReadOnlyCollection<FirebaseObject<Musica>>> GetMusiques()
         {
-            throw new NotImplementedException();
+
+            var allMusica = await Firebase
+                           .Child("Musica")
+                           .OnceAsync<Musica>();
+
+            foreach (var music in allMusica)
+            {
+                Musica oneMusic = music.Object;
+                oneMusic.Nom = music.Key;
+
+            }
+
+            return allMusica;
+
         }
 
         public async Task<bool> RemoveDisc(string musicaName, string discName)
