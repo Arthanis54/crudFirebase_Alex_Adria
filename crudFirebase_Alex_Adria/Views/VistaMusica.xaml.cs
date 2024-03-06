@@ -1,4 +1,5 @@
 ﻿using crudFirebase_Alex_Adria.Domain;
+using crudFirebase_Alex_Adria.Models;
 using System.Windows;
 
 namespace crudFirebase_Alex_Adria.Views
@@ -16,9 +17,44 @@ namespace crudFirebase_Alex_Adria.Views
             InitializeComponent();
         }
 
-        private void btnTest_Click(object sender, RoutedEventArgs e)
+       
+
+        private async void btnAfegir_Click(object sender, RoutedEventArgs e)
         {
             
+            if(!String.IsNullOrEmpty(txtbxNom.Text)&& !String.IsNullOrEmpty(txtDuracio.Text)&& !String.IsNullOrEmpty(txtNomArtista.Text)&& !String.IsNullOrEmpty(txtNomDisc.Text))
+            {
+                string nomSong=  txtbxNom.Text;
+                double tempsDurada = Convert.ToDouble(txtDuracio.Text);
+                string artista = txtNomArtista.Text;    
+                string disc = txtNomDisc.Text; 
+                Song song = new Song(nomSong, tempsDurada);
+                
+
+               bool afegit = await domain.AddSong(artista, disc, song);
+                if(afegit)
+                {
+                    MessageBox.Show("Afegit correctament");
+                }
+                else
+                {
+                    MessageBox.Show("No s'ha pogut afegir");
+                }
+
+            
+
+            }
+
+        }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
