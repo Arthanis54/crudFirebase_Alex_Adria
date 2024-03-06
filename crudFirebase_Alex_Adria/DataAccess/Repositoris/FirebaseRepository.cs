@@ -1,6 +1,7 @@
 ﻿using crudFirebase_Alex_Adria.Models;
 using Firebase.Database;
 using Firebase.Database.Query;
+using System.Security.Policy;
 using System.Xml.Linq;
 
 namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
@@ -92,9 +93,9 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
         {
             return await Firebase
                 .Child("Musica")
-                .Child($"{musicaName}")
+                .Child(musicaName)
                 .Child("Discografia")
-                .Child($"{discName}")
+                .Child(discName)
                 .OnceSingleAsync<Disc>() != null;
         }
 
@@ -102,7 +103,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
         {
             return await Firebase
                 .Child("Musica")
-                .Child($"{name}")
+                .Child(name)
                 .OnceSingleAsync<Musica>() != null;
         }
 
@@ -110,11 +111,11 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
         {
             return await Firebase
                 .Child("Musica")
-                .Child($"{musicaName}")
+                .Child(musicaName)
                 .Child("Discografia")
-                .Child($"{discName}")
+                .Child(discName)
                 .Child("Cançons")
-                .Child($"{songName}")
+                .Child(songName)
                 .OnceSingleAsync<Song>() != null;
         }
 
@@ -130,32 +131,125 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
 
         public async Task<bool> RemoveDisc(string musicaName, string discName)
         {
-            throw new NotImplementedException();
+            bool done = false;
+
+            if (await ExistsDisc(musicaName, discName))
+            {
+                await Firebase
+                    .Child("Musica")
+                    .Child(musicaName)
+                    .Child("Discografia")
+                    .Child(discName)
+                    .DeleteAsync();
+
+                done = true;
+            }
+            return done;
         }
 
         public async Task<bool> RemoveMusic(string name)
         {
-            throw new NotImplementedException();
+            bool done = false;
+
+            if (await ExistsMusica(name))
+            {
+                await Firebase
+                    .Child("Musica")
+                    .Child(name)
+                    .DeleteAsync();
+
+                done = true;
+            }
+            return done;
         }
 
         public async Task<bool> RemoveSong(string musicaName, string discName, string songName)
         {
-            throw new NotImplementedException();
+            bool done = false;
+
+            if (await ExistsSong(musicaName, discName, songName))
+            {
+                await Firebase
+                    .Child("Musica")
+                    .Child(musicaName)
+                    .Child("Discografia")
+                    .Child(discName)
+                    .Child("Cançons")
+                    .Child(songName)
+                    .DeleteAsync();
+
+                done = true;
+            }
+            return done;
         }
 
         public async Task<bool> UpdateDisc(string musicaName, Disc disc)
         {
-            throw new NotImplementedException();
+            bool done = false;
+
+            if (await ExistsDisc(musicaName, disc.Nom))
+            {
+                Disc unDisc = new Disc(
+                    disc.Id,
+                    disc.DataAparicio,
+                    disc.LlistaSongs
+                    );
+                await Firebase
+                    .Child("Musica")
+                    .Child(musicaName)
+                    .Child("Discografia")
+                    .Child(disc.Nom)
+                    .PutAsync(unDisc);
+
+                done = true;
+            }
+            return done;
         }
 
         public async Task<bool> UpdateMusica(Musica musica)
         {
-            throw new NotImplementedException();
+            bool done = false;
+
+            if (await ExistsMusica(musica.Nom))
+            {
+                Musica unaMusica = new Musica(
+                    musica.Id,
+                    musica.DataCreacio,
+                    musica.Info,
+                    musica.Discografia
+                    );
+                await Firebase
+                    .Child("Musica")
+                    .Child(musica.Nom)
+                    .PutAsync(unaMusica);
+
+                done = true;
+            }
+            return done;
         }
 
         public async Task<bool> UpdateSong(string musicaName, string discName, Song song)
         {
-            throw new NotImplementedException();
+            bool done = false;
+
+            if (await ExistsSong(musicaName, discName, song.Nom))
+            {
+                Song unaSong = new Song(
+                    song.Id,
+                    song.Durada
+                    );
+                await Firebase
+                    .Child("Musica")
+                    .Child(musicaName)
+                    .Child("Discografia")
+                    .Child(discName)
+                    .Child("Cançons")
+                    .Child(song.Nom)
+                    .PutAsync(unaSong);
+
+                done = true;
+            }
+            return done;
         }
     }
 }

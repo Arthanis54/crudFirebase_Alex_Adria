@@ -29,17 +29,17 @@ namespace crudFirebase_Alex_Adria.Domain
 
         public async Task<bool> AddMusic(Musica musica)
         {
-            throw new NotImplementedException();
+            return await FirebaseRepository.AddMusic(musica);
         }
 
         public async Task<bool> AddDisc(string musicaName, Disc disc)
         {
-            throw new NotImplementedException();
+            return await FirebaseRepository.AddDisc(musicaName, disc);
         }
 
         public async Task<bool> AddSong(string musicaName, string discName, Song song)
         {
-            throw new NotImplementedException();
+            return await FirebaseRepository.AddSong(musicaName, discName, song);
         }
 
         public async Task<bool> UpdateMusica(Musica musica)
