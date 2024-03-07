@@ -96,5 +96,42 @@ namespace crudFirebase_Alex_Adria.Views
 
 
         }
+
+        //Disc
+        private void DeleteDisc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAddDisc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnUpdateDisc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+
+
+
+        //.Musica
+        private void btnAddMusic_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnUpdateMusic_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeleteMusic_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
