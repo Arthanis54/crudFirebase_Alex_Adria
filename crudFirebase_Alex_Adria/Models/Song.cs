@@ -5,7 +5,6 @@ namespace crudFirebase_Alex_Adria.Models
     public class Song
     {
         private string id;
-        private string nom;
         private double durada;
 
         public Song(string id, double durada)
