@@ -41,12 +41,89 @@ namespace crudFirebase_Alex_Adria.Views
             }
         }
 
-        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        private async void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtbxNom.Text) && !String.IsNullOrEmpty(txtDuracio.Text) && !String.IsNullOrEmpty(txtNomArtista.Text) && !String.IsNullOrEmpty(txtNomDisc.Text))
+            {
+                string nomSong = txtbxNom.Text;
+                double tempsDurada = Convert.ToDouble(txtDuracio.Text);
+                string artista = txtNomArtista.Text;
+                string disc = txtNomDisc.Text;
+               
+
+
+                bool afegit = await domain.RemoveSong(artista, disc, nomSong);
+                if (afegit)
+                {
+                    MessageBox.Show("Eliminat correctament");
+                }
+                else
+                {
+                    MessageBox.Show("No s'ha pogut eliminar");
+                }
+
+
+            }
+
+
+        }
+
+        private async void btnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtbxNom.Text) && !String.IsNullOrEmpty(txtDuracio.Text) && !String.IsNullOrEmpty(txtNomArtista.Text) && !String.IsNullOrEmpty(txtNomDisc.Text))
+            {
+                string nomSong = txtbxNom.Text;
+                double tempsDurada = Convert.ToDouble(txtDuracio.Text);
+                string artista = txtNomArtista.Text;
+                string disc = txtNomDisc.Text;
+                Song song = new Song(nomSong, tempsDurada);
+                bool afegit = await domain.UpdateSong(artista, disc, song);
+                if (afegit)
+                {
+                    MessageBox.Show("Modificat correctament");
+                }
+                else
+                {
+                    MessageBox.Show("No s'ha pogut modificar");
+                }
+            }
+
+
+        }
+
+        //Disc
+        private void DeleteDisc_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnModificar_Click(object sender, RoutedEventArgs e)
+        private void btnAddDisc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnUpdateDisc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+
+
+
+        //.Musica
+        private void btnAddMusic_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnUpdateMusic_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeleteMusic_Click(object sender, RoutedEventArgs e)
         {
 
         }
