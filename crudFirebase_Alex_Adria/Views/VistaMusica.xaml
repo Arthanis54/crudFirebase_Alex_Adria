@@ -6,10 +6,9 @@
         xmlns:local="clr-namespace:crudFirebase_Alex_Adria.Views"
         mc:Ignorable="d"
         Title="CRUD" Height="450" Width="800" Background="Gray">
-    
-        <TabControl Background="Gray">
-            <TabItem Header="CRUD Music">
 
+    <TabControl Background="Gray">
+        <TabItem Header="CRUD Music">
             <Grid Margin="30" Background="LightSkyBlue">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -17,8 +16,6 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -27,31 +24,22 @@
                 </Grid.RowDefinitions>
 
                 <Image Grid.RowSpan="5" Height="150" HorizontalAlignment="Center" Grid.Column="2" Source="../Photos/playerspotify.jpg" />
-
                 <TextBlock Grid.Row="0" Foreground="White"  Grid.ColumnSpan="3" Text="Afageix/Elimina/Modifica la teva musica" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Nom" Foreground="White"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Width="300"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Background="White"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtNomMusica" Width="300"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Background="White"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Data" Foreground="White"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                 <DatePicker HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1"  VerticalAlignment="Top" Name="DatePickerMusic" Margin="10,10,0,0"
-                    SelectedDate="{Binding YourDateProperty}" 
-                    DisplayDateStart="2020-01-01" DisplayDateEnd="2024-12-31"/>
-
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="LLista Discos" Foreground="White"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-                <ComboBox Grid.Row="3" Grid.Column="1" Width="250" Name="cmbLlistaMusica" ></ComboBox>
-
+                    SelectedDate="{Binding YourDateProperty}" DisplayDateStart="2020-01-01" DisplayDateEnd="2024-12-31"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Info" Foreground="White"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtInfoMusic" Width="300"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Background="White"/>
                 <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="3">
                     <Button Width="100" Foreground="White" Name="btnAddMusic" Click="btnAddMusic_Click"  Content="Add" Margin="100,0,0,0" Background="Gray" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton"/>
                     <Button Width="100" Foreground="White" Name="btnUpdateMusic" Click="btnUpdateMusic_Click"  Margin="100,0,0,0" Content="Update" Background="Gray" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton"/>
                     <Button Width="100" Foreground="White" Name="btnDeleteMusic" Click="btnDeleteMusic_Click"  Content="Delete" Margin="100,0,0,0" Background="Gray" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton"/>
-
-
-
-
                 </StackPanel>
             </Grid>
-
         </TabItem>
-            <TabItem Header="CRUD Discos">
+        <TabItem Header="CRUD Discos">
             <Grid Margin="30" Background="LightSkyBlue">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -84,8 +72,8 @@
                 <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="3">
                     <Button Width="100" Foreground="White" Name="btnAddDisc" Click="btnAddDisc_Click" Content="Add" Margin="100,0,0,0" Background="Gray" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton"/>
                     <Button Width="100" Foreground="White" Name="btnUpdateDisc" Click="btnUpdateDisc_Click"   Margin="100,0,0,0" Content="Update" Background="Gray" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton"/>
-                    <Button Width="100" Foreground="White" Click="DeleteDisc_Click" Name="DeleteDisc"  Content="Delete" Margin="100,0,0,0" Background="Gray" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton"/>    
-                             
+                    <Button Width="100" Foreground="White" Click="DeleteDisc_Click" Name="DeleteDisc"  Content="Delete" Margin="100,0,0,0" Background="Gray" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton"/>
+
 
 
 
@@ -94,23 +82,23 @@
 
         </TabItem>
 
-            <TabItem Header="CRUD Songs">
+        <TabItem Header="CRUD Songs">
 
             <Grid Margin="30" Background="LightSkyBlue">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="4*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
                 <Image Grid.RowSpan="5"  Height="150" HorizontalAlignment="Center"  Grid.Column="2" Source="../Photos/dibuix.png"/>
                 <TextBlock Grid.Row="0"  Grid.ColumnSpan="2" Foreground="White" Text="Afageix/Elimina/Modifica la teva canço" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
@@ -126,43 +114,8 @@
                     <Button x:Name="btnAfegirSong"  Margin="10,0,0,0" Content="Afegir" Width="100" Height="30" DockPanel.Dock="Left" Click="btnAfegirSong_Click"  Foreground="White" Background="Gray" FontWeight="Bold"/>
                     <Button x:Name="btnEliminarSong"  Margin="30,0,0,0" Content="Eliminar" Width="100" Height="30" DockPanel.Dock="Right" Click="btnEliminarSong_Click"  Foreground="White" Background="Gray" FontWeight="Bold"/>
                     <Button x:Name="btnModificarSong" Margin="30,0,0,0" Content="Modificar" Width="100" Height="30" DockPanel.Dock="Right" Click="btnModificarSong_Click"  Foreground="White" Background="Gray"  FontWeight="Bold"/>
-
                 </StackPanel>
-               
-                </Grid>
-            </TabItem>
-
-        <TabItem Header="List">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition Height="5*"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="LLista de FireBase" Foreground="White" FontSize="30" HorizontalAlignment="Center" FontStyle="Italic" FontWeight="Black" />
-                <ListView x:Name="lvDetailsMusic" Margin="20" Background="White" Grid.Row="1">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Order Number" DisplayMemberBinding="{Binding OrderNumber}" />
-                            <GridViewColumn Header="Product Name" Width="250" DisplayMemberBinding="{Binding ProductName}" />
-                            <GridViewColumn Header="Quantity Ordered" Width="100" DisplayMemberBinding="{Binding QuantityOrdered}" />
-                            
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-
-
             </Grid>
-
-            
-
-
-
-
-
         </TabItem>
-        </TabControl>
-
-
-
-
+    </TabControl>
 </Window>

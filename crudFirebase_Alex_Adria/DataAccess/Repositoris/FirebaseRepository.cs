@@ -26,10 +26,9 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
 
             if (!await ExistsDisc(musicaName, disc.Nom))
             {
-                Disc unDisc = new Disc(
-                    disc.Id,
-                    disc.DataAparicio
-                    );
+                Disc unDisc = new Disc(disc.Id);
+                unDisc.DataAparicio = disc.DataAparicio;
+
                 await Firebase
                     .Child("Musica")
                     .Child(musicaName)
@@ -48,10 +47,10 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
 
             if (!await ExistsMusica(musica.Nom))
             {
-                Musica unaMusica = new Musica(
-                    musica.Id,
-                    musica.DataCreacio
-                    );
+                Musica unaMusica = new Musica(musica.Id);
+                unaMusica.DataCreacio = musica.DataCreacio;
+                unaMusica.Info = musica.Info;
+
                 await Firebase
                     .Child("Musica")
                     .Child(musica.Nom)
@@ -91,7 +90,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             return await Firebase
                 .Child("Musica")
                 .Child(musicaName)
-                .Child("Discografia")
+                .Child("Cançons")
                 .Child(discName)
                 .OnceSingleAsync<Disc>() != null;
         }
@@ -249,10 +248,9 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
 
             if (await ExistsDisc(musicaName, disc.Nom))
             {
-                Disc unDisc = new Disc(
-                    disc.Id,
-                    disc.DataAparicio
-                    );
+                Disc unDisc = new Disc(disc.Id);
+                unDisc.DataAparicio = disc.DataAparicio;
+
                 await Firebase
                     .Child("Musica")
                     .Child(musicaName)
@@ -271,10 +269,9 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
 
             if (await ExistsMusica(musica.Nom))
             {
-                Musica unaMusica = new Musica(
-                    musica.Id,
-                    musica.DataCreacio
-                    );
+                Musica unaMusica = new Musica(musica.Id);
+                unaMusica.DataCreacio = musica.DataCreacio;
+
                 await Firebase
                     .Child("Musica")
                     .Child(musica.Nom)

@@ -9,14 +9,23 @@ namespace crudFirebase_Alex_Adria.Models
     public class Musica
     {
         private string id;
-        private DateTime dataCreacio;
+        private DateTime dataCreacio = DateTime.Now;
         private string info;
 
-        public Musica(string id, DateTime dataCreacio)
+        public Musica(string id)
         {
             this.id = id;
-            this.dataCreacio = dataCreacio;
-            Discografia = new Dictionary<string, Disc>();
+
+            Disc oneDisc = new Disc(Guid.NewGuid().ToString());
+            oneDisc.Nom = "ExempleDisc" + oneDisc.Id;
+            Disc secondDisc = new Disc(Guid.NewGuid().ToString());
+            secondDisc.Nom = "ExempleDisc" + secondDisc.Id;
+
+            Discografia = new Dictionary<string, Disc>
+            {
+                { oneDisc.Nom, oneDisc },
+                { secondDisc.Nom, secondDisc }
+            };
         }
 
         public string Id { get => this.id; set => this.id = value; }
