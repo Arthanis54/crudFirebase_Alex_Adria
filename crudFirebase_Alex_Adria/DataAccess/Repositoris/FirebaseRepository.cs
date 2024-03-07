@@ -90,7 +90,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             return await Firebase
                 .Child("Musica")
                 .Child(musicaName)
-                .Child("Cançons")
+                .Child("Discografia")
                 .Child(discName)
                 .OnceSingleAsync<Disc>() != null;
         }

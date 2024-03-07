@@ -66,7 +66,7 @@ namespace crudFirebase_Alex_Adria.Views
 
                 Disc oneDisc = await domain.GetDisc(artista, nomDisc);
 
-                if (DatePickerDisc.SelectedDate.HasValue)
+                if (DatePickerDisc.SelectedDate.HasValue && oneDisc != null)
                 {
                     oneDisc.DataAparicio = DatePickerDisc.SelectedDate.Value;
                     await domain.UpdateDisc(artista, oneDisc);
@@ -96,9 +96,23 @@ namespace crudFirebase_Alex_Adria.Views
             GetListMusiques();
         }
 
-        private void btnUpdateMusic_Click(object sender, RoutedEventArgs e)
+        private async void btnUpdateMusic_Click(object sender, RoutedEventArgs e)
         {
+            if (!string.IsNullOrEmpty(txtNomMusica.Text))
+            {
+                string nomMusica = txtNomMusica.Text;
 
+                Musica oneMusica = await domain.GetMusica(nomMusica);
+
+                if (DatePickerMusic.SelectedDate.HasValue && oneMusica != null)
+                {
+                    oneMusica.DataCreacio = DatePickerMusic.SelectedDate.Value;
+                    await domain.UpdateMusica(oneMusica);
+                    MessageBox.Show("Musica modificada");
+                }
+                else MessageBox.Show("Res a modificar");
+            }
+            else MessageBox.Show("Camps buits!");
         }
 
         private async void btnDeleteMusic_Click(object sender, RoutedEventArgs e)
@@ -141,13 +155,11 @@ namespace crudFirebase_Alex_Adria.Views
 
         private async void btnEliminarSong_Click(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtbxNom.Text) &&
-                cmbNomArtistaSong.SelectedIndex > -1 && 
-                cmbNomDiscSong.SelectedIndex > -1)
+            if (!String.IsNullOrEmpty(txtbxNom.Text) && cmbNomArtistaSong.SelectedIndex > -1 && cmbNomDiscSong.SelectedIndex > -1)
             {
                 string nomSong = txtbxNom.Text;
-                string artista = cmbNomArtistaSong.SelectedIndex.ToString();
-                string disc = cmbNomDiscSong.SelectedIndex.ToString();
+                string artista = cmbNomArtistaSong.SelectedItem.ToString();
+                string disc = cmbNomDiscSong.SelectedItem.ToString();
 
                 bool eliminat = await domain.RemoveSong(artista, disc, nomSong);
                 if (eliminat) MessageBox.Show("Eliminat correctament");
@@ -159,20 +171,23 @@ namespace crudFirebase_Alex_Adria.Views
 
         private async void btnModificarSong_Click(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtbxNom.Text) && !String.IsNullOrEmpty(txtDuracio.Text) && 
-                cmbNomArtistaSong.SelectedIndex > -1 && cmbNomDiscSong.SelectedIndex > -1)
+            if (!String.IsNullOrEmpty(txtbxNom.Text) && cmbNomArtistaSong.SelectedIndex > -1 && cmbNomDiscSong.SelectedIndex > -1)
             {
                 string nomSong = txtbxNom.Text;
-                double tempsDurada = Convert.ToDouble(txtDuracio.Text);
-                string artista = cmbNomArtistaSong.SelectedIndex.ToString();
-                string disc = cmbNomDiscSong.SelectedIndex.ToString();
-                
+                string artista = cmbNomArtistaSong.SelectedItem.ToString();
+                string disc = cmbNomDiscSong.SelectedItem.ToString();
+
                 Song song = await domain.GetSong(artista, disc, nomSong);
-                song.Durada = tempsDurada;
-                
-                bool modificat = await domain.UpdateSong(artista, disc, song);
-                if (modificat) MessageBox.Show("Modificat correctament");
-                else MessageBox.Show("No s'ha pogut modificar");
+
+                if (!String.IsNullOrEmpty(txtDuracio.Text) && song != null)
+                {
+                    song.Durada = Convert.ToDouble(txtDuracio.Text);
+
+                    if (await domain.UpdateSong(artista, disc, song)) MessageBox.Show("Modificat correctament");
+                    else MessageBox.Show("No s'ha pogut modificar");
+                }
+                else MessageBox.Show("Res a modificar");
+
             }
             else MessageBox.Show("Camps buits!");
         }
