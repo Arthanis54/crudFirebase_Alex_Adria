@@ -17,7 +17,9 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
         public Task<bool> UpdateDisc(String musicaName, Disc disc);
         public Task<bool> UpdateSong(String musicaName, String discName, Song song);
 
-        public Task<Musica> GetMusica(String name);
+        public Task<Musica> GetMusica(String musicaName);
+        public Task<Disc> GetDisc(String musicaName, string discName);
+        public Task<Song> GetSong(String musicaName, string discName, string songName);
         public Task<IReadOnlyCollection<FirebaseObject<Musica>>> GetMusiques();
     }
 }

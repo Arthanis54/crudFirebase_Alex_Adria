@@ -18,6 +18,8 @@ namespace crudFirebase_Alex_Adria.Domain
         public Task<bool> UpdateSong(String musicaName, String discName, Song song);
 
         public Task<Musica> GetMusica(String name);
+        public Task<Disc> GetDisc(String musicaName, string discName);
+        public Task<Song> GetSong(String musicaName, string discName, string songName);
         public Task<List<Musica>> GetMusiques();
     }
 }

@@ -28,8 +28,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             {
                 Disc unDisc = new Disc(
                     disc.Id,
-                    disc.DataAparicio,
-                    disc.LlistaSongs
+                    disc.DataAparicio
                     );
                 await Firebase
                     .Child("Musica")
@@ -51,9 +50,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             {
                 Musica unaMusica = new Musica(
                     musica.Id,
-                    musica.DataCreacio,
-                    musica.Info,
-                    musica.Discografia
+                    musica.DataCreacio
                     );
                 await Firebase
                     .Child("Musica")
@@ -119,24 +116,59 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
                 .OnceSingleAsync<Song>() != null;
         }
 
-        public async Task<Musica> GetMusica(string name)
+        public async Task<Musica> GetMusica(string musicaName)
         {
             Musica musicaGet = null;
 
-            if(await ExistsMusica(name))
+            if(await ExistsMusica(musicaName))
             {
                 musicaGet = await Firebase
                     .Child("Musica")
-                    .Child(name)
+                    .Child(musicaName)
                     .OnceSingleAsync<Musica>();
 
-                musicaGet.Nom = name;
+                musicaGet.Nom = musicaName;
 
             }
-
-
             return musicaGet;
+        }
 
+        public async Task<Disc> GetDisc(string musicaName, string discName)
+        {
+            Disc discGet = null;
+
+            if (await ExistsDisc(musicaName, discName))
+            {
+                discGet = await Firebase
+                    .Child("Musica")
+                    .Child(musicaName)
+                    .Child("Discografia")
+                    .Child(discName)
+                    .OnceSingleAsync<Disc>();
+
+                discGet.Nom = discName;
+            }
+            return discGet;
+        }
+
+        public async Task<Song> GetSong(string musicaName, string discName, string songName)
+        {
+            Song songGet = null;
+
+            if (await ExistsSong(musicaName, discName, songName))
+            {
+                songGet = await Firebase
+                    .Child("Musica")
+                    .Child(musicaName)
+                    .Child("Discografia")
+                    .Child(discName)
+                    .Child("Cançons")
+                    .Child(songName)
+                    .OnceSingleAsync<Song>();
+
+                songGet.Nom = songName;
+            }
+            return songGet;
         }
 
         public async Task<IReadOnlyCollection<FirebaseObject<Musica>>> GetMusiques()
@@ -146,15 +178,15 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
                            .Child("Musica")
                            .OnceAsync<Musica>();
 
+
+
             foreach (var music in allMusica)
             {
                 Musica oneMusic = music.Object;
                 oneMusic.Nom = music.Key;
 
             }
-
             return allMusica;
-
         }
 
         public async Task<bool> RemoveDisc(string musicaName, string discName)
@@ -219,8 +251,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             {
                 Disc unDisc = new Disc(
                     disc.Id,
-                    disc.DataAparicio,
-                    disc.LlistaSongs
+                    disc.DataAparicio
                     );
                 await Firebase
                     .Child("Musica")
@@ -242,9 +273,7 @@ namespace crudFirebase_Alex_Adria.DataAccess.Repositoris
             {
                 Musica unaMusica = new Musica(
                     musica.Id,
-                    musica.DataCreacio,
-                    musica.Info,
-                    musica.Discografia
+                    musica.DataCreacio
                     );
                 await Firebase
                     .Child("Musica")

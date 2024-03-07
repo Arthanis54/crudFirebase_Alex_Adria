@@ -61,9 +61,14 @@ namespace crudFirebase_Alex_Adria.Domain
         {
             return await FirebaseRepository.GetMusica(name);
         }
-
-
-
+        public async Task<Disc> GetDisc(string musicaName, string discName)
+        {
+            return await FirebaseRepository.GetDisc(musicaName, discName);
+        }
+        public async Task<Song> GetSong(string musicaName, string discName, string songName)
+        {
+            return await FirebaseRepository.GetSong(musicaName, discName, songName);
+        }
 
         // per convertir de <IReadOnlyCollection<FirebaseObject<Musica>>> a <List<Musica>> sha de fer el metode seguent :
         public async Task<List<Musica>> GetMusiques()

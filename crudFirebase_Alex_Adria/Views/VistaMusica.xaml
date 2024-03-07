@@ -26,7 +26,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Image Grid.RowSpan="5" Height="150" HorizontalAlignment="Center" Grid.Column="2" Source="C:\Users\alexa\Desktop\FireBaseAlexAdri\crudFirebase_Alex_Adria\crudFirebase_Alex_Adria\Photos\playerspotify.jpg" />
+                <Image Grid.RowSpan="5" Height="150" HorizontalAlignment="Center" Grid.Column="2" Source="../Photos/playerspotify.jpg" />
 
                 <TextBlock Grid.Row="0" Foreground="White"  Grid.ColumnSpan="3" Text="Afageix/Elimina/Modifica la teva musica" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Nom" Foreground="White"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
@@ -68,18 +68,18 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Image Grid.RowSpan="5" Height="150" HorizontalAlignment="Center"  Grid.Column="2" Source="C:\Users\alexa\Desktop\FireBaseAlexAdri\crudFirebase_Alex_Adria\crudFirebase_Alex_Adria\Photos\disc.png" />
+                <Image Grid.RowSpan="5" Height="150" HorizontalAlignment="Center"  Grid.Column="2" Source="../Photos/disc.png" />
 
-                <TextBlock Grid.Row="0" Foreground="White"  Grid.ColumnSpan="3" Text="Afageix/Elimina/Modifica el teu disc" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                <TextBlock Grid.Row="0" Foreground="White"  Grid.ColumnSpan="3" Text="Afegeix/Elimina/Modifica el teu disc" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Nom" Foreground="White"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Width="300"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Background="White"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtDiscName" Width="300"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Background="White"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Data" Foreground="White"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-                <DatePicker HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1"  VerticalAlignment="Top" Name="DatePicker" Margin="10,10,0,0"
+                <DatePicker HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1"  VerticalAlignment="Top" x:Name="DatePickerDisc" Margin="10,10,0,0"
                      SelectedDate="{Binding YourDateProperty}" 
                         DisplayDateStart="2020-01-01" DisplayDateEnd="2024-12-31"/>
 
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="LLista Songs" Foreground="White"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-                <ComboBox Grid.Row="3" Grid.Column="1" Width="250" Name="cmbLlistaSongs" ></ComboBox>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="LLista Artistes" Foreground="White"  FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                <ComboBox Grid.Row="3" Grid.Column="1" Width="250" Name="cmbLlistaMusicsDiscos"/>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="3">
                     <Button Width="100" Foreground="White" Name="btnAddDisc" Click="btnAddDisc_Click" Content="Add" Margin="100,0,0,0" Background="Gray" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton"/>
@@ -112,20 +112,19 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                <Image Grid.RowSpan="5"  Height="150" HorizontalAlignment="Center"  Grid.Column="2" Source="C:\Users\alexa\Desktop\FireBaseAlexAdri\crudFirebase_Alex_Adria\crudFirebase_Alex_Adria\Photos\spotify2.png" />
+                <Image Grid.RowSpan="5"  Height="150" HorizontalAlignment="Center"  Grid.Column="2" Source="../Photos/dibuix.png"/>
                 <TextBlock Grid.Row="0"  Grid.ColumnSpan="2" Foreground="White" Text="Afageix/Elimina/Modifica la teva canço" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Foreground="White" Text="Nom" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
                 <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtbxNom" Height="25" Width="400" Margin="5"  Background="White" />
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Duracio" Foreground="White" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
                 <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtDuracio" Height="25"  Width="400" Margin="5"  Background="White"/>
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="Nom Disc" Foreground="White" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
-                <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtNomDisc" Height="25"  Width="400" Margin="5"  Background="White" />
+                <ComboBox Grid.Row="3" Grid.Column="1" x:Name="cmbNomDiscSong" Height="25"  Width="400" Margin="5"/>
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="Nom Artista" Foreground="White" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtNomArtista" Height="25"  Width="400" Margin="5" Background="White" />
+                <ComboBox Grid.Row="4" Grid.Column="1" x:Name="cmbNomArtistaSong" Height="25"  Width="400" Margin="5"/>
                 <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" Margin="10">
                     <Button x:Name="btnAfegirSong"  Margin="10,0,0,0" Content="Afegir" Width="100" Height="30" DockPanel.Dock="Left" Click="btnAfegirSong_Click"  Foreground="White" Background="Gray" FontWeight="Bold"/>
                     <Button x:Name="btnEliminarSong"  Margin="30,0,0,0" Content="Eliminar" Width="100" Height="30" DockPanel.Dock="Right" Click="btnEliminarSong_Click"  Foreground="White" Background="Gray" FontWeight="Bold"/>
-                    <Button x:Name="btnModificarSong" Margin="30,0,0,0" Content="Modificar" Width="100" Height="30" DockPanel.Dock="Right" Click="btnModificarSong_Click"  Foreground="White" Background="Gray"  FontWeight="Bold"/>
                     <Button x:Name="btnModificarSong" Margin="30,0,0,0" Content="Modificar" Width="100" Height="30" DockPanel.Dock="Right" Click="btnModificarSong_Click"  Foreground="White" Background="Gray"  FontWeight="Bold"/>
 
                 </StackPanel>

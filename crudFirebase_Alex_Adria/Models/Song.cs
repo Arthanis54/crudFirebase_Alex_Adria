@@ -1,7 +1,9 @@
-﻿using System.Text;
+﻿using Newtonsoft.Json;
+using System.Text;
 
 namespace crudFirebase_Alex_Adria.Models
 {
+    [JsonObject]
     public class Song
     {
         private string id;
